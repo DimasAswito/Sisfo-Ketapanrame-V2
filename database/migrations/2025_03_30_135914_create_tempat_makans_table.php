@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tempat_makans', function (Blueprint $table) {
-            $table->id();
+        Schema::create('tempat_makan', function (Blueprint $table) {
+            $table->id('id_tempatMakan');
+            $table->string('nama_tempatMakan');
+            $table->text('deskripsi_tempatMakan');
+            $table->string('foto_tempatMakan')->nullable();
+            $table->string('wa_tempatMakan')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tempat_makans');
+        Schema::dropIfExists('tempat_makan');
     }
 };

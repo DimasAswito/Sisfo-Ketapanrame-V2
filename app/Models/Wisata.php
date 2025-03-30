@@ -12,7 +12,7 @@ class Wisata extends Model
 
     protected $table = 'wisata';
     protected $primaryKey = 'id_wisata'; 
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
         'nama_wisata',

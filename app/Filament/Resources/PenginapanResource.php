@@ -23,7 +23,19 @@ class PenginapanResource extends Resource
     {
         return $form
             ->schema([
-                //
+            Forms\Components\TextInput::make('nama_penginapan')
+                ->required(),
+            Forms\Components\Textarea::make('deskripsi_penginapan')
+                ->required(),
+            Forms\Components\FileUpload::make('foto_penginapan')
+                ->label('Foto Penginapan')
+                ->image()
+                ->disk('public')
+                ->directory('Penginapan')
+                ->required(),
+            Forms\Components\TextInput::make('wa_penginapan')
+                ->tel()
+                ->required(),
             ]);
     }
 
@@ -31,7 +43,20 @@ class PenginapanResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('nama_penginapan')
+                    ->label('Nama Penginapan')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('deskripsi_penginapan')
+                    ->label('Deskripsi Penginapan'),
+                Tables\Columns\ImageColumn::make('foto_penginapan')
+                    ->label('Foto Penginapan'),
+                Tables\Columns\TextColumn::make('wa_penginapan')
+                    ->label('WhatsApp Penginapan ')
+                    ->url(fn (Penginapan $record): string => 'https://wa.me/' . $record->wa_penginapan)
+                    ->openUrlInNewTab()
+                    ->formatStateUsing(fn ($state) => 'https://wa.me/' . $state),
+                
             ])
             ->filters([
                 //

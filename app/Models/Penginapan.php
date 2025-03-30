@@ -12,7 +12,7 @@ class Penginapan extends Model
     
     protected $table = 'penginapan';
     protected $primaryKey = 'id_penginapan';
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
         'nama_penginapan',

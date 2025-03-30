@@ -12,7 +12,7 @@ class TempatMakan extends Model
 
     protected $table = 'tempat_makan';
     protected $primaryKey = 'id_tempatMakan';
-    public $timestamps = false;
+    public $timestamps = true;
 
     protected $fillable = [
         'nama_tempatMakan',

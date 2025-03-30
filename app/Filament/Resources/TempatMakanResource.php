@@ -23,7 +23,19 @@ class TempatMakanResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('nama_tempatMakan')
+                ->required(),
+            Forms\Components\Textarea::make('deskripsi_tempatMakan')
+                ->required(),
+            Forms\Components\FileUpload::make('foto_tempatMakan')
+                ->label('Foto Tempat Makan')
+                ->image()
+                ->disk('public')
+                ->directory('tempatMakan')
+                ->required(),
+            Forms\Components\TextInput::make('wa_tempatMakan')
+                ->tel()
+                ->required(),
             ]);
     }
 
@@ -31,7 +43,20 @@ class TempatMakanResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('nama_tempatMakan')
+                    ->label('Nama Tempat Makan')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('deskripsi_tempatMakan')
+                    ->label('Deskripsi Tempat Makan'),
+                Tables\Columns\ImageColumn::make('foto_tempatMakan')
+                    ->label('Foto Tempat Makan'),
+                Tables\Columns\TextColumn::make('wa_tempatMakan')
+                    ->label('WhatsApp Tempat Makan')
+                    ->url(fn (TempatMakan $record): string => 'https://wa.me/' . $record->wa_wisata)
+                    ->openUrlInNewTab()
+                    ->formatStateUsing(fn ($state) => 'https://wa.me/' . $state),
+                
             ])
             ->filters([
                 //
