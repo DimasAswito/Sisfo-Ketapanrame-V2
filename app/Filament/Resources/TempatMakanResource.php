@@ -34,8 +34,12 @@ class TempatMakanResource extends Resource
                 ->directory('tempatMakan')
                 ->required(),
             Forms\Components\TextInput::make('wa_tempatMakan')
-                ->tel()
-                ->required(),
+                ->label('Nomor WhatsApp')
+                ->required()
+                ->numeric()
+                ->prefixIcon('heroicon-o-phone')
+                ->rule('regex:/^0\d{9,12}$/') // Hanya menerima nomor yang diawali '0' dengan panjang 10-13 digit
+                ->hint('Masukkan nomor tanpa +62, cukup awali dengan 0'),
             ]);
     }
 
@@ -52,10 +56,10 @@ class TempatMakanResource extends Resource
                 Tables\Columns\ImageColumn::make('foto_tempatMakan')
                     ->label('Foto Tempat Makan'),
                 Tables\Columns\TextColumn::make('wa_tempatMakan')
-                    ->label('WhatsApp Tempat Makan')
-                    ->url(fn (TempatMakan $record): string => 'https://wa.me/' . $record->wa_wisata)
-                    ->openUrlInNewTab()
-                    ->formatStateUsing(fn ($state) => 'https://wa.me/' . $state),
+                ->label('WhatsApp Tempat Makan')
+                ->url(fn (TempatMakan $record): string => 'https://wa.me/' . preg_replace('/^0/', '+62', $record->wa_tempatMakan))
+                ->openUrlInNewTab()
+                ->formatStateUsing(fn ($state) => preg_replace('/^0/', '+62', $state)),
                 
             ])
             ->filters([

@@ -33,7 +33,7 @@ class WisataResource extends Resource
                     ->disk('public')
                     ->directory('wisata')
                     ->required(),
-                    Forms\Components\TextInput::make('wa_wisata')
+                Forms\Components\TextInput::make('wa_wisata')
                     ->label('Nomor WhatsApp')
                     ->required()
                     ->numeric()

@@ -34,8 +34,12 @@ class PenginapanResource extends Resource
                 ->directory('Penginapan')
                 ->required(),
             Forms\Components\TextInput::make('wa_penginapan')
-                ->tel()
-                ->required(),
+                ->label('Nomor WhatsApp')
+                ->required()
+                ->numeric()
+                ->prefixIcon('heroicon-o-phone')
+                ->rule('regex:/^0\d{9,12}$/') // Hanya menerima nomor yang diawali '0' dengan panjang 10-13 digit
+                ->hint('Masukkan nomor tanpa +62, cukup awali dengan 0'),   
             ]);
     }
 
@@ -52,10 +56,10 @@ class PenginapanResource extends Resource
                 Tables\Columns\ImageColumn::make('foto_penginapan')
                     ->label('Foto Penginapan'),
                 Tables\Columns\TextColumn::make('wa_penginapan')
-                    ->label('WhatsApp Penginapan ')
-                    ->url(fn (Penginapan $record): string => 'https://wa.me/' . $record->wa_penginapan)
+                    ->label('WhatsApp Penginapan')
+                    ->url(fn (Penginapan $record): string => 'https://wa.me/' . preg_replace('/^0/', '+62', $record->wa_penginapan))
                     ->openUrlInNewTab()
-                    ->formatStateUsing(fn ($state) => 'https://wa.me/' . $state),
+                    ->formatStateUsing(fn ($state) => preg_replace('/^0/', '+62', $state)),
                 
             ])
             ->filters([
