@@ -19,51 +19,25 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="item features-image col-12 col-md-6 col-lg-4">
-				<div class="item-wrapper">
-					<div class="item-img">
-						<img src="assets/images/shop1.webp" alt="Mobirise Website Builder">
+			@foreach($penginapans as $penginapan)
+					<div class="item features-image col-12 col-md-6 col-lg-4">
+							<div class="item-wrapper">
+									<div class="item-img">
+											<img src="{{ asset('storage/' . $penginapan->foto_penginapan) }}" alt="{{ $penginapan->nama_penginapan }}">
+									</div>
+									<div class="item-content">
+											<h5 class="item-title mbr-fonts-style display-5">
+													<strong>{{ $penginapan->nama_penginapan }}</strong>
+											</h5>
+											<p class="mbr-text mbr-fonts-style display-7">
+													{{ $penginapan->deskripsi_penginapan }}
+											</p>
+									</div>
+							</div>
 					</div>
-					<div class="item-content">
-						<h5 class="item-title mbr-fonts-style display-5">
-							<strong>Nama Penginapan</strong></h5>
-						<p class="mbr-text mbr-fonts-style display-7">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit habitant turpis.
-						</p>
-						
-					</div>
-
-				</div>
-			</div>
-			<div class="item features-image col-12 col-md-6 col-lg-4">
-				<div class="item-wrapper">
-					<div class="item-img">
-						<img src="assets/images/shop2.webp" alt="Mobirise Website Builder">
-					</div>
-					<div class="item-content">
-						<h5 class="item-title mbr-fonts-style display-5"><strong>Nama Penginapan</strong></h5>
-						<p class="mbr-text mbr-fonts-style display-7">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit habitant turpis .
-						</p>
-						
-					</div>
-				</div>
-			</div>
-			<div class="item features-image col-12 col-md-6 col-lg-4">
-				<div class="item-wrapper">
-					<div class="item-img">
-						<img src="assets/images/shop3.webp" alt="Mobirise Website Builder">
-					</div>
-					<div class="item-content">
-						<h5 class="item-title mbr-fonts-style display-5"><strong>Nama Penginapan</strong></h5>
-						<p class="mbr-text mbr-fonts-style display-7">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit habitant turpis .<br>
-						</p>
-						
-					</div>
-				</div>
-			</div>
-		</div>
+			@endforeach
+	</div>
+	
 	</div>
 </section>
 

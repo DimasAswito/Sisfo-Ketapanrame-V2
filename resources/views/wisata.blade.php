@@ -19,50 +19,25 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="item features-image col-12 col-md-6 col-lg-4">
-				<div class="item-wrapper">
-					<div class="item-img">
-						<img src="assets/images/gallery01.webp" alt="Mobirise Website Builder">
+			@foreach($wisatas as $wisata)
+					<div class="item features-image col-12 col-md-6 col-lg-4">
+							<div class="item-wrapper">
+									<div class="item-img">
+											<img src="{{ asset('storage/' . $wisata->foto_wisata) }}" alt="{{ $wisata->nama_wisata }}">
+									</div>
+									<div class="item-content">
+											<h5 class="item-title mbr-fonts-style display-5">
+													<strong>{{ $wisata->nama_wisata }}</strong>
+											</h5>
+											<p class="mbr-text mbr-fonts-style display-7">
+													{{ $wisata->deskripsi_wisata }}
+											</p>
+									</div>
+							</div>
 					</div>
-					<div class="item-content">
-						<h5 class="item-title mbr-fonts-style display-5">
-							<strong>Nama Wisata</strong></h5>
-						<p class="mbr-text mbr-fonts-style display-7">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit turpis.
-						</p>
-						
-					</div>
-				</div>
-			</div>
-			<div class="item features-image col-12 col-md-6 col-lg-4">
-				<div class="item-wrapper">
-					<div class="item-img">
-						<img src="assets/images/gallery02.webp" alt="Mobirise Website Builder">
-					</div>
-					<div class="item-content">
-						<h5 class="item-title mbr-fonts-style display-5"><strong>Nama Wisata</strong></h5>
-						<p class="mbr-text mbr-fonts-style display-7">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit turpis.
-						</p>
-						
-					</div>
-				</div>
-			</div>
-			<div class="item features-image col-12 col-md-6 col-lg-4">
-				<div class="item-wrapper">
-					<div class="item-img">
-						<img src="assets/images/gallery04.webp" alt="Mobirise Website Builder">
-					</div>
-					<div class="item-content">
-						<h5 class="item-title mbr-fonts-style display-5"><strong>Nama Wisata</strong></h5>
-						<p class="mbr-text mbr-fonts-style display-7">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit turpis.<br>
-						</p>
-						
-					</div>
-				</div>
-			</div>
-		</div>
+			@endforeach
+	</div>
+	
 	</div>
 </section>
 
