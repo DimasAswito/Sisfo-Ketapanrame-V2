@@ -21,6 +21,7 @@
 		<div class="row">
 			@foreach($penginapans as $penginapan)
 					<div class="item features-image col-12 col-md-6 col-lg-4">
+						<a href="{{ route('penginapan.show', $penginapan->id_penginapan) }}" class="text-decoration-none text-dark">
 							<div class="item-wrapper">
 									<div class="item-img">
 											<img src="{{ asset('storage/' . $penginapan->foto_penginapan) }}" alt="{{ $penginapan->nama_penginapan }}">
@@ -34,6 +35,7 @@
 											</p>
 									</div>
 							</div>
+						</a>
 					</div>
 			@endforeach
 	</div>

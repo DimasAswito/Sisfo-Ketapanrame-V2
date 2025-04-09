@@ -21,7 +21,8 @@
 		<div class="row">
 			@foreach($tempatMakans as $tempatMakan)
 					<div class="item features-image col-12 col-md-6 col-lg-4">
-							<div class="item-wrapper">
+						<a href="{{ route('makan.show', $tempatMakan->id_tempatMakan) }}" class="text-decoration-none text-dark">
+						<div class="item-wrapper">
 									<div class="item-img">
 											<img src="{{ asset('storage/' . $tempatMakan->foto_tempatMakan) }}" alt="{{ $tempatMakan->nama_tempatMakan }}">
 									</div>
@@ -34,6 +35,7 @@
 											</p>
 									</div>
 							</div>
+						</a>
 					</div>
 			@endforeach
 	</div>

@@ -11,4 +11,10 @@ class PenginapanController extends Controller
     $penginapans = Penginapan::all();
     return view('penginapan', compact('penginapans'));
     }
+
+    public function show($id)
+    {
+        $penginapan = Penginapan::findOrFail($id);
+        return view('penginapan-detail', compact('penginapan'));
+    }
 }

@@ -21,19 +21,21 @@
 		<div class="row">
 			@foreach($wisatas as $wisata)
 					<div class="item features-image col-12 col-md-6 col-lg-4">
+						<a href="{{ route('wisata.show', $wisata->id_wisata) }}" class="text-decoration-none text-dark">
 							<div class="item-wrapper">
-									<div class="item-img">
-											<img src="{{ asset('storage/' . $wisata->foto_wisata) }}" alt="{{ $wisata->nama_wisata }}">
-									</div>
-									<div class="item-content">
-											<h5 class="item-title mbr-fonts-style display-5">
-													<strong>{{ $wisata->nama_wisata }}</strong>
-											</h5>
-											<p class="mbr-text mbr-fonts-style display-7">
-													{{ $wisata->deskripsi_wisata }}
-											</p>
-									</div>
+								<div class="item-img">
+									<img src="{{ asset('storage/' . $wisata->foto_wisata) }}" alt="{{ $wisata->nama_wisata }}">
+								</div>
+								<div class="item-content">
+									<h5 class="item-title mbr-fonts-style display-5">
+										<strong>{{ $wisata->nama_wisata }}</strong>
+									</h5>
+									<p class="mbr-text mbr-fonts-style display-7">
+										{{ $wisata->deskripsi_wisata }}
+									</p>
+								</div>
 							</div>
+						</a>						
 					</div>
 			@endforeach
 	</div>

@@ -11,7 +11,10 @@ Route::get('/', function () {
 })->name('beranda');
 
 Route::get('/wisata', [WisataController::class, 'index']);
+Route::get('/wisata/{id}', [WisataController::class, 'show'])->name('wisata.show');
 
 Route::get('/penginapan', [PenginapanController::class, 'index']);
+Route::get('/penginapan/{id}', [PenginapanController::class, 'show'])->name('penginapan.show');
 
 Route::get('/makan', [TempatMakanController::class, 'index']);
+Route::get('/makan/{id}', [TempatMakanController::class, 'show'])->name('makan.show');

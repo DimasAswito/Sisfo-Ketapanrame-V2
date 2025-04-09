@@ -12,4 +12,10 @@ class WisataController extends Controller
     return view('wisata', compact('wisatas'));
     }
 
+    public function show($id)
+{
+    $wisata = Wisata::findOrFail($id);
+    return view('wisata-detail', compact('wisata'));
+}
+
 }

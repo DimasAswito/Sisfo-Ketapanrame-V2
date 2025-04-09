@@ -12,4 +12,10 @@ class TempatMakanController extends Controller
     $tempatMakans = TempatMakan::all();
     return view('makan', compact('tempatMakans'));
     }
+
+    public function show($id)
+    {
+        $tempatMakan = TempatMakan::findOrFail($id);
+        return view('makan-detail', compact('tempatMakan'));
+    }
 }
